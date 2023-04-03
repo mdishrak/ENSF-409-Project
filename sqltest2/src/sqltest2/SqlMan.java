@@ -53,7 +53,7 @@ public class SqlMan {
 	            System.out.println("  ");
 	            
 	            resultSet = statement
-	                    .executeQuery("select * from ewr.tasks");
+	                    .executeQuery("select * from ewr.treatments");
 	            while(resultSet.next()) {
 	            	String trId = resultSet.getString(1);
 	            	String aid = resultSet.getString(2);
