@@ -35,7 +35,7 @@ public class SqlMan {
 	            	String aid = resultSet.getString(1);
 	            	String aname = resultSet.getString(2);
 	            	String aSpec = resultSet.getString(3);
-	            	System.out.println("ID:"+aid+" NAME:"+aname + " Species:  "+ aSpec);
+	            	System.out.println("ID:"+aid+"  ||   NAME:"+aname + "  ||   Species:  "+ aSpec);
 	            }
 	            
 	            System.out.println("  ");
@@ -47,8 +47,22 @@ public class SqlMan {
 	            	String tDesc = resultSet.getString(2);
 	            	String tDur = resultSet.getString(3);
 	            	String  aMax = resultSet.getString(4); 
-	            	System.out.println(" Task ID :"+tid+" T Desc: "+tDesc + " T Dur : "+ tDur + " MaxWindow: "+ aMax );
+	            	System.out.println(" Task ID :"+tid+"  ||  T Desc: "+tDesc + "  ||   T Dur : "+ tDur + "  ||   MaxWindow: "+ aMax );
 	            }
+	            
+	            System.out.println("  ");
+	            
+	            resultSet = statement
+	                    .executeQuery("select * from ewr.tasks");
+	            while(resultSet.next()) {
+	            	String trId = resultSet.getString(1);
+	            	String aid = resultSet.getString(2);
+	            	String tid = resultSet.getString(3);
+	            	String  startHour = resultSet.getString(4); 
+	            	System.out.println( " Treatment ID: "+ trId+ "  ||   Animal ID :"+aid+"  ||  Task Id: "+tid + "  || Start Hour : "+ startHour  );
+	            }
+	            
+	            
 	            
 
 //	            // PreparedStatements can use variables and are more efficient
