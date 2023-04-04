@@ -49,16 +49,22 @@ public class SqlMan {
 	            
 	            resultSet = statement
 	                    .executeQuery("select * from ewr.tasks");
+	            
+	            int indexTrack = 1;
 	            while(resultSet.next()) {
 	            	String tid = resultSet.getString(1);
 	            	String tDesc = resultSet.getString(2);
-	            	String tDur = resultSet.getString(3);
+	            	int tDur = 
+	            			Integer.parseInt(resultSet.getString(3));
 	            	String  aMax = resultSet.getString(4); 
 	            	//System.out.println(" Task ID :"+tid+"  ||  T Desc: "+tDesc + "  ||   T Dur : "+ tDur + "  ||   MaxWindow: "+ aMax );
-	            	
+	            	indexTrack++;
 	            	Tasks tempTask = new Tasks(tid, tDesc, tDur, aMax);
 	            	taskList.add(tempTask);
 	            }
+	            
+	            
+	            AddExtraTasks(indexTrack);
 	            
 	            resultSet = statement
 	                    .executeQuery("select * from ewr.treatments");
@@ -101,6 +107,11 @@ public class SqlMan {
 
 	        } 
 	    } 
+	    
+	    public void AddExtraTasks(int lastId) {
+	    	Tasks tempTask = new Tasks(lastId, "feeding",5, );
+        	taskList.add(tempTask);
+	    }
 
 	}
 
