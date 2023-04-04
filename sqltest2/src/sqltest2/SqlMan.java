@@ -40,15 +40,12 @@ public class SqlMan {
 	            	String aid = resultSet.getString(1);
 	            	String aname = resultSet.getString(2);
 	            	String aSpec = resultSet.getString(3);
-	            	System.out.println("ID:"+aid+"  ||   NAME:"+aname + "  ||   Species:  "+ aSpec);
+	            	//System.out.println("ID:"+aid+"  ||   NAME:"+aname + "  ||   Species:  "+ aSpec);
 	            	
 	            	Animals tempAnimal = new Animals(aid, aname, aSpec);
 	            	animalList.add(tempAnimal);
 	            }
 	            
-	            
-	            
-	            System.out.println("  ");
 	            
 	            resultSet = statement
 	                    .executeQuery("select * from ewr.tasks");
@@ -57,13 +54,11 @@ public class SqlMan {
 	            	String tDesc = resultSet.getString(2);
 	            	String tDur = resultSet.getString(3);
 	            	String  aMax = resultSet.getString(4); 
-	            	System.out.println(" Task ID :"+tid+"  ||  T Desc: "+tDesc + "  ||   T Dur : "+ tDur + "  ||   MaxWindow: "+ aMax );
+	            	//System.out.println(" Task ID :"+tid+"  ||  T Desc: "+tDesc + "  ||   T Dur : "+ tDur + "  ||   MaxWindow: "+ aMax );
 	            	
 	            	Tasks tempTask = new Tasks(tid, tDesc, tDur, aMax);
 	            	taskList.add(tempTask);
 	            }
-	            
-	            System.out.println("  ");
 	            
 	            resultSet = statement
 	                    .executeQuery("select * from ewr.treatments");
@@ -72,13 +67,13 @@ public class SqlMan {
 	            	String aid = resultSet.getString(2);
 	            	String tid = resultSet.getString(3);
 	            	String  startHour = resultSet.getString(4); 
-	            	System.out.println( " Treatment ID: "+ trId+ "  ||   Animal ID :"+aid+"  ||  Task Id: "+tid + "  || Start Hour : "+ startHour  );
+	            	//System.out.println( " Treatment ID: "+ trId+ "  ||   Animal ID :"+aid+"  ||  Task Id: "+tid + "  || Start Hour : "+ startHour  );
 	            	
 	            	Treatments tempTreatment = new Treatments(trId, aid, tid, startHour);
 	            	treatmentList.add(tempTreatment);
 	            }
 	            
-	            
+	            //System.out.println(animalList.size());
 
 	        } catch (Exception e) {
 	            throw e;
