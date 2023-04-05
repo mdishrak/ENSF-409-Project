@@ -15,10 +15,6 @@ public class Animals {
 		this.animalName = name;
 		this.animalSpecies = spec;
 		
-	}
-	
-	
-	
-	
+	}	
 	
 }
