@@ -19,14 +19,13 @@ public class TaskMan {
 	}
 
 	public void makeSchedule() {
-
 		TreeMap<String, TaskHour> hourslist = new TreeMap<String, TaskHour>();
 
 		for (Treatments t : requiredTasksList) {
 			if (hourslist.containsKey(t.startTime)) {
 				TaskHour taskHour = hourslist.get(t.startTime);
-				boolean b = taskHour.AddTasktoHour(t);
-				if (!b)
+				boolean isTaskAllocated = taskHour.AddTasktoHour(t);
+				if (!isTaskAllocated)
 					leftoutTasksList.add(t);
 				hourslist.put(t.startTime, taskHour);
 			} else {
@@ -36,8 +35,8 @@ public class TaskMan {
 		}
 		for (int i = 0; i < 24; i++) {
 			boolean hasHour = hourslist.containsKey(String.valueOf(i));
-			TaskHour doesHourHaveTasks = hourslist.get(String.valueOf(i));
-			if (hasHour ) {
+//			boolean doesHourHaveTasks = ;
+			if (hasHour && !hourslist.get(String.valueOf(i)).isTasksEmpty()) {
 				TaskHour h = hourslist.get(String.valueOf(i));
 				h.PrintHourSchedule();
 			}
