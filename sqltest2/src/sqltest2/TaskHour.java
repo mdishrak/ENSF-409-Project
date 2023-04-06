@@ -18,17 +18,17 @@ public class TaskHour {
 			return true;
 		else if(tasksArrayList.isEmpty())
 			return true;
-		return true;
+		return false;
 	} 
 
 	public boolean AddTasktoHour(Treatments t) {
 		if ((timeRemaining - t.taskDuration) >= 0) {
 			tasksArrayList.add(t);
 			timeRemaining = timeRemaining - t.taskDuration;
-			System.out.println("asdasf");
 			return true;
 		} else {
 			System.out.println("Not enough time in hour left for " + t.taskName + " for " + t.animalName);
+			// TODO prompt for volunteer
 			return false;
 		}
 	}
@@ -36,7 +36,7 @@ public class TaskHour {
 	public void PrintHourSchedule() {
 		System.out.println(hour + ":00 hour");
 		for (Treatments t : tasksArrayList) {
-			System.out.println("\t"+t.taskName+" for "+t.animalName+" - "+t.taskDuration);
+			System.out.println("\t"+t.taskName+" for "+t.animalName+" - "+t.taskDuration+" mins");
 		}
 	}
 }

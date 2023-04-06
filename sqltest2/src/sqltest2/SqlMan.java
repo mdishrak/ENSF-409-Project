@@ -69,10 +69,7 @@ public class SqlMan {
 			}
 			
 			AddExtraTasks(indexTrack);
-			System.out.println(taskList.size());
-			for (Tasks tt : taskList) {
-				System.out.println(tt);
-			}
+			
 
 		} catch (Exception e) {
 			throw e;
@@ -159,9 +156,9 @@ public class SqlMan {
 			tmpArrayList.add(new Treatments(t.treatID, thisanimName, thisTaskName, t.startTime, td));
 
 		}
-		for (Treatments tt : tmpArrayList) {
-			System.out.println(tt);
-		}
+//		for (Treatments tt : tmpArrayList) {
+//			System.out.println(tt);
+//		}
 		return tmpArrayList;
 
 	}
