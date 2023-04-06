@@ -1,4 +1,4 @@
-package sqltest2;
+package edu.ucalgary.oop;
 
 public class Treatments {
 	public String treatID; // treatmentID

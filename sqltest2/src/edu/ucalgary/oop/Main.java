@@ -1,5 +1,5 @@
 //package edu.ucalgary.oop;
-package sqltest2;
+package edu.ucalgary.oop;
 
 public class Main {
     public static void main(String[] args) throws Exception {

@@ -1,4 +1,4 @@
-package sqltest2;
+package edu.ucalgary.oop;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
