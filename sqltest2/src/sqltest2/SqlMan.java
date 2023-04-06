@@ -12,6 +12,7 @@ public class SqlMan {
 	ArrayList<Tasks> taskList = new ArrayList<Tasks>();
 	ArrayList<Treatments> treatmentList = new ArrayList<Treatments>();
 
+	@SuppressWarnings("resource")
 	public void readDataBase() throws Exception {
 		Connection connect = null;
 		Statement statement = null;
@@ -19,7 +20,7 @@ public class SqlMan {
 
 		try {
 			// This will load the MySQL driver, each DB has its own driver
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			// Setup the connection with the DB
 			connect = DriverManager.getConnection("jdbc:mysql://localhost/ewr?" + "user=root&password=Rakish,1202");
 
@@ -53,7 +54,6 @@ public class SqlMan {
 				taskList.add(tempTask);
 			}
 
-			AddExtraTasks(indexTrack);
 
 			resultSet = statement.executeQuery("select * from ewr.treatments");
 			while (resultSet.next()) {
@@ -67,8 +67,12 @@ public class SqlMan {
 				Treatments tempTreatment = new Treatments(trId, aid, tid, startHour);
 				treatmentList.add(tempTreatment);
 			}
-
-			// System.out.println(animalList.size());
+			
+			AddExtraTasks(indexTrack);
+			System.out.println(taskList.size());
+			for (Tasks tt : taskList) {
+				System.out.println(tt);
+			}
 
 		} catch (Exception e) {
 			throw e;
@@ -145,12 +149,18 @@ public class SqlMan {
 
 			String thisTaskId = t.taskID;
 			String thisTaskName = "";
+			int td = 0;
 			for (Tasks a : taskList)
-				if (thisTaskId.equals(a.taskID))
+				if (thisTaskId.equals(a.taskID)) {
+					td = a.taskDur;
 					thisTaskName = a.taskDesc;
+				}
 
-			tmpArrayList.add(new Treatments(t.treatID, t.taskID, thisanimName, thisTaskName, t.startTime));
+			tmpArrayList.add(new Treatments(t.treatID, thisanimName, thisTaskName, t.startTime, td));
 
+		}
+		for (Treatments tt : tmpArrayList) {
+			System.out.println(tt);
 		}
 		return tmpArrayList;
 

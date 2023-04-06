@@ -16,5 +16,10 @@ public class Tasks {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "id:"+taskID+", "+taskDesc+", "+taskDur+"mins @ "+taskTime;
+
+	}
 
 }

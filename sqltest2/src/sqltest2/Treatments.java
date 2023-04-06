@@ -8,6 +8,7 @@ public class Treatments {
 
 	public String animalName;
 	public String taskName;
+	public int taskDuration;
 
 	public Treatments(String trID, String anID, String tasID, String startTym) {
 
@@ -18,13 +19,19 @@ public class Treatments {
 
 	}
 
-	public Treatments(String trID, String tasID, String a, String t, String startTym) {
+	public Treatments(String trID, String a, String t, String startTym, int d) {
 
 		this.treatID = trID;
 		this.animalName = a;
-		this.taskID = tasID;
+		this.taskDuration = d;
 		this.taskName = t;
 		this.startTime = startTym;
 
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "id:"+treatID+", "+taskDuration+"m @ "+startTime+"hr - "+taskName+" for "+animalName;
 	}
 }
