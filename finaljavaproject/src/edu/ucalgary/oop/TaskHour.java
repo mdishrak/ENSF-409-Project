@@ -55,16 +55,21 @@ public class TaskHour {
 			if (userInput.equals("y")) {
 				// Print a message indicating that a backup volunteer has been called
 				System.out.println("backup volunteer has been called");
-
-				
+ 
+				                                                                          // print treatment lists 
 				SqlMan sqlMan = new SqlMan();
 				try {
 		            sqlMan.readDataBase();
 		            ArrayList<Treatments> tmpArrayList = sqlMan.mergedList();
-		            //System.out.println(tmpArrayList);
+		                                                                         //System.out.println(tmpArrayList);
 		            for (int i = 0; i < tmpArrayList.size(); i++) {
 		                System.out.println(tmpArrayList.get(i));
 		            }
+		            sqlMan.AddExtraTasks(11);
+		            for (Tasks task : sqlMan.taskList) {
+		                System.out.println(task);
+		            }                                        // call the AddExtraTasks method with the last ID as 10
+		            
 		        }catch (Exception e) {
 		            e.printStackTrace();
 		        }
