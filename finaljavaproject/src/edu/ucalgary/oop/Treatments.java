@@ -33,7 +33,8 @@ public class Treatments {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "id:"+treatID+", "+taskDuration+"m @ "+startTime+"hr - "+taskName+" for "+animalName;
+		//return "id:"+treatID+", "+taskDuration+"m @ "+startTime+"hr - "+taskName+" for "+animalName;
+		return startTime + ":00 hour \n         " + taskName+" for "+animalName + " - " + taskDuration ;
 
 	
 	
