@@ -46,6 +46,21 @@ public class TaskHour {
 			if (userInput.equals("y")) {
 				// Print a message indicating that a backup volunteer has been called
 				System.out.println("backup volunteer has been called");
+
+				
+				SqlMan sqlMan = new SqlMan();
+				try {
+		            sqlMan.readDataBase();
+		            ArrayList<Treatments> tmpArrayList = sqlMan.mergedList();
+		            //System.out.println(tmpArrayList);
+		            for (int i = 0; i < tmpArrayList.size(); i++) {
+		                System.out.println(tmpArrayList.get(i));
+		            }
+		        }catch (Exception e) {
+		            e.printStackTrace();
+		        }
+				
+				
 			} else if (userInput.equals("n")) {
 				// Print a message indicating that a backup volunteer has NOT been called.
 				System.out.println("no pressed.shcedule generation dismissed. System quit.");
@@ -62,14 +77,14 @@ public class TaskHour {
 
 		return false;
 	}
+	
+	
 
 	public void PrintHourSchedule() {
 		System.out.println(hour + ":00 hour");
 		for (Treatments t : tasksArrayList) {
 			// Print each task in the ArrayList
-			
 			System.out.println("\t" + t.taskName + " for " + t.animalName + " - " + t.taskDuration + " mins");
 		}
 	}
-	
 }

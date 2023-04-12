@@ -163,7 +163,7 @@ public class SqlMan {
 //			System.out.println(tt);
 //		}
 		//ArrayList<Treatments> mergedList = mergedList();
-		System.out.println(tmpArrayList);
+		//System.out.println(tmpArrayList);
 		
 		
 		return tmpArrayList;
