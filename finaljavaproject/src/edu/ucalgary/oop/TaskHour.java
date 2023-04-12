@@ -67,7 +67,9 @@ public class TaskHour {
 		System.out.println(hour + ":00 hour");
 		for (Treatments t : tasksArrayList) {
 			// Print each task in the ArrayList
+			
 			System.out.println("\t" + t.taskName + " for " + t.animalName + " - " + t.taskDuration + " mins");
 		}
 	}
+	
 }

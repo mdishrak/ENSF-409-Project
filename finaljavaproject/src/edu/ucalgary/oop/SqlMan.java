@@ -162,6 +162,10 @@ public class SqlMan {
 //		for (Treatments tt : tmpArrayList) {
 //			System.out.println(tt);
 //		}
+		//ArrayList<Treatments> mergedList = mergedList();
+		System.out.println(tmpArrayList);
+		
+		
 		return tmpArrayList;
 
 	}
