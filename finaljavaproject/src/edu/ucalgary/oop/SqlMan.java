@@ -7,10 +7,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class SqlMan {
+    // initialize ArrayLists to store data from the database
 
 	ArrayList<Animals> animalList = new ArrayList<Animals>();
 	ArrayList<Tasks> taskList = new ArrayList<Tasks>();
 	ArrayList<Treatments> treatmentList = new ArrayList<Treatments>();
+
+    // method to read data from the database
 
 	@SuppressWarnings("resource")
 	public void readDataBase() throws Exception {
@@ -38,11 +41,11 @@ public class SqlMan {
 				Animals tempAnimal = new Animals(aid, aname, aSpec);
 				animalList.add(tempAnimal);
 			}
-
+			// execute a SQL query to get tasks
 			resultSet = statement.executeQuery("select * from ewr.tasks");
 
 			int indexTrack = 1;
-			while (resultSet.next()) {
+			while (resultSet.next()) {   // loop through the result set of tasks and add them to the taskList
 				String tid = resultSet.getString(1);
 				String tDesc = resultSet.getString(2);
 				int tDur = Integer.parseInt(resultSet.getString(3));
@@ -68,8 +71,8 @@ public class SqlMan {
 				treatmentList.add(tempTreatment);
 			}
 			
-			AddExtraTasks(indexTrack);
-			
+			AddExtraTasks(indexTrack);       // call the AddExtraTasks method to add additional tasks to the taskList
+
 
 		} catch (Exception e) {
 			throw e;
@@ -93,7 +96,7 @@ public class SqlMan {
 
 	}
 
-	public void AddExtraTasks(int lastId) {
+	public void AddExtraTasks(int lastId) {                                                // method to add extra tasks to the taskList. 
 		Tasks tempTask = new Tasks(String.valueOf(lastId), "feeding beaver", 5, "2");
 		taskList.add(tempTask);
 		lastId++;

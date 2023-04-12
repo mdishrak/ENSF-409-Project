@@ -9,6 +9,9 @@ public class Animals {
 	
 	public Animals() {}
 	
+	
+	// This is a constructor with three parameters to initialize the instance variables
+
 	public Animals (String id, String name, String spec) {
 		
 		this.animalID = id ;

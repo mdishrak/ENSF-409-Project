@@ -6,8 +6,8 @@ import java.util.TreeMap;
 
 public class TaskMan {
 
-	ArrayList<Treatments> requiredTasksList;
-	ArrayList<Treatments> leftoutTasksList;
+	ArrayList<Treatments> requiredTasksList; // ArrayList to store all required tasks
+	ArrayList<Treatments> leftoutTasksList; // ArrayList to store tasks that could not be scheduled
 
 	public TaskMan() {
 		// TODO Auto-generated constructor stub
@@ -22,6 +22,7 @@ public class TaskMan {
 		TreeMap<String, TaskHour> hourslist = new TreeMap<String, TaskHour>();
 
 		for (Treatments t : requiredTasksList) {
+			// if the hour already exists in the TreeMap get the TaskHour object associated with the hour attempt to allocate task to hour
 			if (hourslist.containsKey(t.startTime)) {
 				TaskHour taskHour = hourslist.get(t.startTime);
 				boolean isTaskAllocated = taskHour.AddTasktoHour(t);
@@ -39,6 +40,8 @@ public class TaskMan {
 			if (hasHour && !hourslist.get(String.valueOf(i)).isTasksEmpty()) {
 				TaskHour h = hourslist.get(String.valueOf(i));
 				h.PrintHourSchedule();
+				
+//				System.out.println(h.PrintHourSchedule());
 			}
 		}
 	}

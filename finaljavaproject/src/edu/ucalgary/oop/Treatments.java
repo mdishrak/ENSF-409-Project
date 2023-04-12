@@ -11,7 +11,7 @@ public class Treatments {
 	public int taskDuration;
 
 	public Treatments(String trID, String anID, String tasID, String startTym) {
-
+		// Assign values to the instance variables
 		this.treatID = trID;
 		this.aniID = anID;
 		this.taskID = tasID;
@@ -20,7 +20,7 @@ public class Treatments {
 	}
 
 	public Treatments(String trID, String a, String t, String startTym, int d) {
-
+		// Assign values to the instance variables
 		this.treatID = trID;
 		this.animalName = a;
 		this.taskDuration = d;
@@ -29,6 +29,7 @@ public class Treatments {
 
 	}
 	
+	// Override the toString() method to return a formatted string with the instance variables
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
